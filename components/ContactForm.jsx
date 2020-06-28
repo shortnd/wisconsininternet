@@ -43,6 +43,18 @@ function ContactForm() {
         </label>
       </div>
       <div>
+        <label htmlFor="phoneNumber" className={styles.label}>
+          <span className={styles.labelText}>Phone Number:</span>
+          <input
+            type="text"
+            name="phoneNumber"
+            id="phoneNumber"
+            className={styles.input}
+            placeholder="123-345-6789"
+          />
+        </label>
+      </div>
+      <div>
         <label htmlFor="address" className={styles.label}>
           <span className={styles.labelText}>Address:</span>
           <input
