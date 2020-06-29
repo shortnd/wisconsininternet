@@ -9,7 +9,7 @@ export default function IndexPage() {
       </Head>
       <div className="flex justify-center items-center min-h-screen">
         <div className="container mx-auto">
-          <article class="shadow-md rounded p-3 border">
+          <article className="shadow-md rounded p-3 border">
             <h1 className="text-lg font-bold text-center my-3">
               Interested in service, reach out to us.
             </h1>
