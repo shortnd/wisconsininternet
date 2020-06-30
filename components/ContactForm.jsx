@@ -59,6 +59,7 @@ function ContactForm() {
           "Please provide speed between 1kb to 100gb"
         ),
       })}
+      validateOnMount={true}
       onSubmit={(values) => {
         alert(JSON.stringify(values, null, 2));
         fetch("/api/contact-us", {
@@ -82,6 +83,7 @@ function ContactForm() {
                 className={styles.input}
                 aria-labelledby="firstNameErrors"
                 required={true}
+                autoComplete="given-name"
               />
             </label>
             <div
@@ -103,6 +105,7 @@ function ContactForm() {
                 className={styles.input}
                 aria-labelledby="lastNameErrors"
                 required={true}
+                autoComplete="family-name"
               />
             </label>
             <div
@@ -125,6 +128,7 @@ function ContactForm() {
                 placeholder="joe@example.com"
                 required={true}
                 className={styles.input}
+                autoComplete="email"
               />
             </label>
             <div className="text-red-700" id="emailErrors" aria-live="polite">
@@ -141,6 +145,7 @@ function ContactForm() {
                 placeholder="234-456-7890"
                 className={styles.input}
                 required={true}
+                autoComplete="tel"
               />
             </label>
             <div
@@ -162,6 +167,7 @@ function ContactForm() {
               placeholder="123 W Main St"
               className={styles.input}
               required={true}
+              autoComplete="address-line"
             />
           </label>
           <div className="text-red-700" id="addressErrors" aria-live="polite">
@@ -179,6 +185,7 @@ function ContactForm() {
                 placeholder="Milwaukee"
                 className={styles.input}
                 required={true}
+                autoComplete="address-level1"
               />
             </label>
             <div className="text-red-700" id="cityErrors" aria-live="polite">
@@ -194,6 +201,7 @@ function ContactForm() {
                 id="state"
                 placeholder="WI"
                 className={styles.input}
+                autoComplete="address-level2"
               />
             </label>
             <div className="text-red-700" id="cityErrors" aria-live="polite">
@@ -209,6 +217,7 @@ function ContactForm() {
                 id="zip"
                 className={styles.input}
                 placeholder="55555"
+                autoComplete="postal-code"
               />
             </label>
             <div className="text-red-700" id="cityErrors" aria-live="polite">
