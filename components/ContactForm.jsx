@@ -50,7 +50,7 @@ function ContactForm() {
         state: Yup.string()
           .required("State is required")
           .matches(
-            /(WI)/g,
+            /(WI|wi|Wi)/g,
             "Must be WI, we currently do not support other states"
           ),
         currentProvider: Yup.string().min(2).max(255),
@@ -59,14 +59,16 @@ function ContactForm() {
           "Please provide speed between 1kb to 100gb"
         ),
       })}
-      validateOnMount={true}
       onSubmit={(values) => {
-        alert(JSON.stringify(values, null, 2));
         fetch("/api/contact-us", {
           method: "POST",
-          data: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
         })
           .then(async (res) => await res.json())
+          .then((res) => console.log(res))
           .catch((err) => console.log(err));
       }}
     >
