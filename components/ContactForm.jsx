@@ -2,9 +2,6 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-require("es6-promise").polyfill();
-import * as fetch from "isomorphic-fetch";
-
 function ContactForm() {
   const styles = {
     label: "flex flex-col mb-3",
