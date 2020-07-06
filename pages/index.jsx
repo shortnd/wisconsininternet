@@ -12,8 +12,9 @@ export default function IndexPage() {
         <div className="container mx-auto">
           <main className="shadow-md rounded p-3 border">
             <h1 className="text-lg font-bold text-center my-3">
-              Interested in service, reach out to us.
+              Welcome to Wisconsin Internet.
             </h1>
+            <p>Interested in service, reach out to us.</p>
             <hr className="my-3" />
             <ContactForm />
           </main>
