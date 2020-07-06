@@ -71,9 +71,15 @@ export default function IndexPage() {
               name="contact"
               method="POST"
               action="/success"
+              netlify-honeypot="bot-field"
               data-netlify="true"
             >
               <input type="hidden" name="contact-us" value="contact" />
+              <div className="hidden">
+                <label htmlFor="bot-field">
+                  <input name="bot-field" />
+                </label>
+              </div>
               <div className="md:flex md:justify-between">
                 <InputElement
                   name="firstName"
