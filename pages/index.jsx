@@ -72,7 +72,7 @@ export default function IndexPage() {
               method="POST"
               action="/success"
               netlify-honeypot="bot-field"
-              data-netlify-recaptcha="true"
+              //   data-netlify-recaptcha="true"
               data-netlify="true"
             >
               <input type="hidden" name="contact-us" value="contact" />
@@ -114,7 +114,6 @@ export default function IndexPage() {
                 placeholder="262-123-12345"
                 formik={formik}
                 styles={styles}
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               />
               <div>
                 <InputElement
@@ -158,7 +157,7 @@ export default function IndexPage() {
                 styles={styles}
               />
               <div className="mb-3">
-                <div data-netlify-recaptcha="true"></div>
+                {/* <div data-netlify-recaptcha="true"></div> */}
               </div>
               <div>
                 <button
