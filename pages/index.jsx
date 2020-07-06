@@ -88,7 +88,7 @@ export default function IndexPage() {
                   placeholder="John"
                   formik={formik}
                   styles={styles}
-                  className="flex-auto md:mr-3"
+                  className="flex-auto md:mr-3 md:max-w-1/2"
                 />
                 <InputElement
                   name="lastName"
@@ -96,7 +96,7 @@ export default function IndexPage() {
                   placeholder="Doe"
                   formik={formik}
                   styles={styles}
-                  className="flex-auto"
+                  className="flex-auto md:max-w-1/2"
                 />
               </div>
               <InputElement
