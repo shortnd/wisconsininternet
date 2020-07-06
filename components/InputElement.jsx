@@ -9,6 +9,7 @@ function InputElement({
   type = "text",
   pattern = null,
   className = null,
+  required = false,
 }) {
   return (
     <div className={className ? className : ""}>
@@ -24,10 +25,18 @@ function InputElement({
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           pattern={pattern}
+          required={required}
+          aria-labelledby={`${name}-error`}
         />
       </label>
       {formik.touched[name] && formik.errors[name] ? (
-        <div className="text-red-700">{formik.errors[name]}</div>
+        <div
+          className="text-red-700"
+          aria-live="assertive"
+          id={`${name}-error`}
+        >
+          {formik.errors[name]}
+        </div>
       ) : null}
     </div>
   );
@@ -41,6 +50,7 @@ InputElement.propTypes = {
   styles: propTypes.object.isRequired,
   type: propTypes.string,
   className: propTypes.string,
+  required: propTypes.bool,
 };
 
 export default InputElement;
