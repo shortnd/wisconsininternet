@@ -1,10 +1,21 @@
-function InputElement({ name, text, formik, placeholder, styles }) {
+import propTypes from "prop-types";
+
+function InputElement({
+  name,
+  text,
+  formik,
+  placeholder,
+  styles,
+  type = "text",
+  pattern = null,
+  className = null,
+}) {
   return (
-    <div>
+    <div className={className ? className : ""}>
       <label htmlFor={name} className={styles.label}>
         <span className={styles.labelText}>{text}</span>
         <input
-          type="text"
+          type={type}
           name={name}
           id={name}
           className={styles.input}
@@ -12,6 +23,7 @@ function InputElement({ name, text, formik, placeholder, styles }) {
           value={formik.values[name]}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          pattern={pattern}
         />
       </label>
       {formik.touched[name] && formik.errors[name] ? (
@@ -22,11 +34,13 @@ function InputElement({ name, text, formik, placeholder, styles }) {
 }
 
 InputElement.propTypes = {
-  name: String,
-  text: String,
-  placeholder: String,
-  formik: Object,
-  styles: Object,
+  name: propTypes.string.isRequired,
+  text: propTypes.string.isRequired,
+  placeholder: propTypes.string.isRequired,
+  formik: propTypes.object.isRequired,
+  styles: propTypes.object.isRequired,
+  type: propTypes.string,
+  className: propTypes.string,
 };
 
 export default InputElement;
