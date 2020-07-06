@@ -48,11 +48,13 @@ export default function IndexPage() {
           /(WI|wi|Wi)/g,
           "Must be WI, we currently do not support other states"
         ),
+      business: Yup.bool(),
       currentProvider: Yup.string().min(2).max(255),
       currentSpeed: Yup.string().matches(
         /([0-9]{1,5})(kb|mb|gb)/g,
         "Please provide speed between 1kb to 100gb"
       ),
+      computerMaintenance: Yup.bool(),
     }),
   });
   return (
@@ -89,6 +91,7 @@ export default function IndexPage() {
                   formik={formik}
                   styles={styles}
                   className="flex-auto md:mr-3 md:max-w-1/2"
+                  required={true}
                 />
                 <InputElement
                   name="lastName"
@@ -97,6 +100,7 @@ export default function IndexPage() {
                   formik={formik}
                   styles={styles}
                   className="flex-auto md:max-w-1/2"
+                  required={true}
                 />
               </div>
               <InputElement
@@ -106,6 +110,7 @@ export default function IndexPage() {
                 placeholder="joe@example.com"
                 formik={formik}
                 styles={styles}
+                required={true}
               />
               <InputElement
                 type="tel"
@@ -114,6 +119,7 @@ export default function IndexPage() {
                 placeholder="262-123-12345"
                 formik={formik}
                 styles={styles}
+                required={true}
               />
               <div>
                 <InputElement
@@ -122,6 +128,7 @@ export default function IndexPage() {
                   placeholder="123 Main St"
                   formik={formik}
                   styles={styles}
+                  required={true}
                 />
                 <div className="md:flex md:justify-between">
                   <InputElement
@@ -131,6 +138,7 @@ export default function IndexPage() {
                     formik={formik}
                     styles={styles}
                     className="flex-auto md:mr-3"
+                    required={true}
                   />
                   <InputElement
                     name="state"
@@ -139,8 +147,17 @@ export default function IndexPage() {
                     formik={formik}
                     styles={styles}
                     className="flex-auto"
+                    required={true}
                   />
                 </div>
+                <InputElement
+                  type="checkbox"
+                  name="business"
+                  text="Is this a business address?"
+                  placeholder="business"
+                  formik={formik}
+                  styles={styles}
+                />
               </div>
               <InputElement
                 name="currentProvider"
@@ -153,6 +170,14 @@ export default function IndexPage() {
                 name="currentSpeed"
                 text="Current Speed"
                 placeholder="15mb"
+                formik={formik}
+                styles={styles}
+              />
+              <InputElement
+                type="checkbox"
+                name="computerMaintenance"
+                text="Would you like use to provide Computer maintenance for you?"
+                placeholder="computerMaintenance"
                 formik={formik}
                 styles={styles}
               />
