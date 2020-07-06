@@ -19,25 +19,31 @@ function InputElement({
           type={type}
           name={name}
           id={name}
-          className={styles.input}
+          className={`${styles.input} ${
+            formik.touched[name] && formik.errors[name] && "border-red-700"
+          }`}
           placeholder={placeholder}
           value={formik.values[name]}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           pattern={pattern}
           required={required}
-          aria-labelledby={`${name}-error`}
+          {...(required ? `aria-labeledby=${name}-error` : "")}
         />
       </label>
-      {formik.touched[name] && formik.errors[name] ? (
-        <div
-          className="text-red-700"
-          aria-live="assertive"
-          id={`${name}-error`}
-        >
-          {formik.errors[name]}
-        </div>
-      ) : null}
+      {required && (
+        <>
+          {formik.touched[name] && formik.errors[name] ? (
+            <div
+              className="text-red-700"
+              aria-live="assertive"
+              id={`${name}-error`}
+            >
+              {formik.errors[name]}
+            </div>
+          ) : null}
+        </>
+      )}
     </div>
   );
 }
