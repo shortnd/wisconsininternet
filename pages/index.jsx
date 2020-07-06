@@ -72,6 +72,7 @@ export default function IndexPage() {
               method="POST"
               action="/success"
               netlify-honeypot="bot-field"
+              data-netlify-recaptcha="true"
               data-netlify="true"
             >
               <input type="hidden" name="contact-us" value="contact" />
@@ -156,6 +157,9 @@ export default function IndexPage() {
                 formik={formik}
                 styles={styles}
               />
+              <div className="mb-3">
+                <div data-netlify-recaptcha="true"></div>
+              </div>
               <div>
                 <button
                   type="submit"
